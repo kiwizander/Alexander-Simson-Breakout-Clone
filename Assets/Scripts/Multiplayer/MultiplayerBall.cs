@@ -5,6 +5,8 @@ using Mirror;
 
 public class MultiplayerBall : NetworkBehaviour
 {
+
+    //Unfortunatley the ball physics doesn't quite sync up and the ball doesn't delete correctly on the client
     public bool parented = false;
     public GameObject playerParent;
     public UIManager uIManager;
