@@ -5,17 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ModeSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SinglePlayer()
     {
@@ -25,5 +14,10 @@ public class ModeSelector : MonoBehaviour
     public void MultiPlayer()
     {
         SceneManager.LoadScene("Multiplayer", LoadSceneMode.Single);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

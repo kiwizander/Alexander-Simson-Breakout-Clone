@@ -42,8 +42,6 @@ public class NetworkManagerBreakOut : NetworkManager
         }
     }
 
-
-
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         base.OnServerDisconnect(conn);

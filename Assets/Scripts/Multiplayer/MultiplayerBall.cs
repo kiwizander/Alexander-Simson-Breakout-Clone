@@ -23,10 +23,6 @@ public class MultiplayerBall : NetworkBehaviour
             DestroyBlock(otherObject);
             playerParent.GetComponent<MultiPlayerController>().CmdChangeScore();
         }
-        // if(otherObject.tag == "floor")
-        // {
-        //     DestroyBall(gameObject);
-        // }
     }
 
     [ServerCallback]
@@ -35,9 +31,5 @@ public class MultiplayerBall : NetworkBehaviour
         NetworkServer.Destroy(_object);
     }
 
-    // [ServerCallback]
-    // void DestroyBall(GameObject _object)
-    // {
-    //     NetworkServer.Destroy(_object);
-    // }
+
 }

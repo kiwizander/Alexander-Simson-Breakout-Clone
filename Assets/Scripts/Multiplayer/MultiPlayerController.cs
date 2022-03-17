@@ -20,15 +20,9 @@ public class MultiPlayerController : NetworkBehaviour
     [SyncVar(hook = nameof(OnNameChanged))]
     public string playerName;
 
-    // public void SpawnBall(int playerNumber)
-    // {
-    //     ball = GameObject.Find("Ball"+playerNumber);
-    //     GetComponent<NetworkTransformChild>().target = ball.transform;
-    // }
     void Awake()
     {
         uIManager = GameObject.FindObjectOfType<UIManager>();
-
     }
 
     public void SetPlayerID(int numberPlayers)
@@ -122,9 +116,6 @@ public class MultiPlayerController : NetworkBehaviour
         }
         ball.SetActive(false);
         GameObject playerBall = Instantiate(ballPrefab, ballSpawnPosition.position, Quaternion.identity);
-        // only simulate ball physics on server
-        // playerBall.GetComponent<Rigidbody>().simulated = true;
-            // rigidbody2d.simulated = true;
         playerBall.name = "ball" + playerID;
         playerBall.GetComponent<MultiplayerBall>().playerParent = this.gameObject;
         float angle = Random.Range(-force/2, force/2);
@@ -146,17 +137,5 @@ public class MultiPlayerController : NetworkBehaviour
         spawnedBlock.GetComponent<Renderer>().material = blockMaterial;        
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdDestoryBall(GameObject _ball)
-    {
-        DestoryBallRpc(_ball);
-    }
-
-    [ClientRpc]
-    public void DestoryBallRpc(GameObject _gameBall)
-    {
-        Destroy(_gameBall);
-    }
-
-    
+   
 }

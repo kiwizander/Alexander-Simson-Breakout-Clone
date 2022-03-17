@@ -13,7 +13,6 @@ public class MultiplayerFloorTrigger : NetworkBehaviour
         {
             GameObject ballParent = otherObject.GetComponent<MultiplayerBall>().playerParent;
             ballParent.GetComponent<MultiPlayerController>().CmdRespawnBall();
-            ballParent.GetComponent<MultiPlayerController>().CmdDestoryBall(otherObject);
             DestroyBall(otherObject);            
         }
     }
